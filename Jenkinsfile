@@ -40,9 +40,9 @@ pipeline {
             }
         }
 
-        stage('Build') {
+        stage('version') {
             steps {
-                echo "Here you can add build steps, tests, Docker builds, etc."
+                sh "ansible --version"
             }
         }
 
@@ -72,6 +72,7 @@ pipeline {
     }
 
 }
+
 
 
 
