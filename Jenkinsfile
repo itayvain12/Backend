@@ -1,7 +1,7 @@
 
 
 pipeline {
-    agent any
+    agent {label '172.20.1.25'}
 
     stages {
         stage('Debug Branch') {
@@ -72,6 +72,7 @@ pipeline {
     }
 
 }
+
 
 
 
