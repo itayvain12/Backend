@@ -17,7 +17,7 @@ pipeline {
                 script {                   
                     echo "Checking out branch: 'master'"
                     checkout([$class: 'GitSCM',
-                        branches: [[name: "master"]],
+                        branches: [[name: "main"]],
                         doGenerateSubmoduleConfigurations: false,
                         extensions: [],
                         userRemoteConfigs: [[
@@ -69,4 +69,5 @@ pipeline {
             echo "❌ Pipeline failed for branch: ${params.BRANCH}"
         }
     }
+
 }
