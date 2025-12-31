@@ -46,7 +46,6 @@ pipeline {
                     ansible --version
                     whoami
                     pwd
-                
                    "
             }
         }
@@ -77,6 +76,7 @@ pipeline {
     }
 
 }
+
 
 
 
