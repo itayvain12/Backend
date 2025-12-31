@@ -51,10 +51,10 @@ pipeline {
                 script {
                     if (params.DRY_RUN) {
                         echo "Running Ansible playbook in dry-run mode (--check)..."
-                        sh 'ansible-playbook -i inventory.yaml flowsec-fullstack.yml -e "host=lab" --tags frontend -e "flowsec_frontend_branch=${params.BRANCH}" --check'
+                        sh 'ansible-playbook playbook.yml --check'
                     } else {
                         echo "Running Ansible playbook normally..."
-                        sh 'ansible-playbook -i inventory.yaml flowsec-fullstack.yml -e "host=lab" --tags frontend -e "flowsec_frontend_branch=${params.BRANCH}"'
+                        sh 'ansible-playbook playbook.yml'
                     }
                 }
             }
@@ -71,4 +71,5 @@ pipeline {
     }
 
 }
+
 
