@@ -42,7 +42,12 @@ pipeline {
 
         stage('version') {
             steps {
-                sh "ansible --version"
+                sh "
+                    ansible --version
+                    whoami
+                    pwd
+                
+                   "
             }
         }
 
@@ -72,6 +77,7 @@ pipeline {
     }
 
 }
+
 
 
 
