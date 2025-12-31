@@ -40,15 +40,20 @@ pipeline {
             }
         }
 
-        stage('version') {
-            steps {
-                sh "
-                    ansible --version
-                    whoami
-                    pwd
-                   "
-            }
-        }
+stage('version') {
+  steps {
+    sh '''
+      ansible --version || true
+      whoami
+      id
+      echo "HOME=$HOME"
+      pwd
+      echo "PATH=$PATH"
+      which ansible-playbook || true
+    '''
+  }
+}
+
 
 
         stage('Run Ansible Playbook') {
@@ -76,6 +81,7 @@ pipeline {
     }
 
 }
+
 
 
 
