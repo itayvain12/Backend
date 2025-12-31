@@ -1,5 +1,3 @@
-
-
 pipeline {
     agent {label '172.20.1.25'}
 
@@ -12,6 +10,7 @@ pipeline {
             }
         }
 
+        
         stage('Checkout') {
             steps {
                 script {                   
@@ -30,32 +29,7 @@ pipeline {
             }
         }
 
-
-
-
-
-        stage('Info') {
-            steps {
-                echo "Building branch: ${params.BRANCH}"
-            }
-        }
-
-stage('version') {
-  steps {
-    sh '''
-      ansible --version || true
-      whoami
-      id
-      echo "HOME=$HOME"
-      pwd
-      echo "PATH=$PATH"
-      which ansible-playbook || true
-    '''
-  }
-}
-
-
-
+        
         stage('Run Ansible Playbook') {
             steps {
                 script {
@@ -71,6 +45,7 @@ stage('version') {
         }
     }
 
+    
     post {
         success {
             echo "✅ Pipeline finished successfully for branch: ${params.BRANCH}"
@@ -81,12 +56,3 @@ stage('version') {
     }
 
 }
-
-
-
-
-
-
-
-
-
